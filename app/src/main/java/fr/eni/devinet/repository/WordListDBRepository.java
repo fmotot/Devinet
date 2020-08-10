@@ -1,6 +1,7 @@
 package fr.eni.devinet.repository;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -16,8 +17,8 @@ public class WordListDBRepository implements IWordListRepository {
     private LiveData<List<WordList>> wordList;
     private MutableLiveData<WordList> observateurWordList;
 
-    public WordListDBRepository(Application application) {
-        AppDatabase appDatabase = AppDatabase.getInstance(application);
+    public WordListDBRepository(Context context) {
+        AppDatabase appDatabase = AppDatabase.getInstance(context);
         wordListDao = appDatabase.getWordListDao();
         wordList = wordListDao.get();
         observateurWordList = new MutableLiveData<WordList>();

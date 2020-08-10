@@ -15,8 +15,8 @@ public class LevelDBRepository implements  ILevelRepository {
     private LevelDao levelDao;
     private LiveData<List<Level>> levels;
 
-    public LevelDBRepository(Application application) {
-        AppDatabase appDatabase = AppDatabase.getInstance(application);
+    public LevelDBRepository(Context context) {
+        AppDatabase appDatabase = AppDatabase.getInstance(context);
         levelDao = appDatabase.getLevelDao();
         levels = levelDao.get();
     }
