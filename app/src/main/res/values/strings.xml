@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Devinet</string>
+    <string name="level">niveau</string>
+
 </resources>
