@@ -16,8 +16,6 @@ import fr.eni.devinet.model.Category;
 import fr.eni.devinet.model.Level;
 import fr.eni.devinet.model.Word;
 import fr.eni.devinet.model.WordList;
-import fr.eni.devinet.repository.CategoryDBRepository;
-import fr.eni.devinet.repository.ICategoryRepository;
 
 @Database(
         entities = {
@@ -114,45 +112,45 @@ public abstract class AppDatabase extends RoomDatabase {
             wordDao.insert(new Word(0, "mûre", "mûre.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("2",levelDao.get("1").getId()).getId()));
 
             wordDao.insert(new Word(0, "loup", "loup.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("3",levelDao.get("1").getId()).getId()));
-            wordDao.insert(new Word(0, "lynx", "lynx.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("3",levelDao.get("1").getId()).getId()));
+            wordDao.insert(new Word(0, "lynx", "lynx.jpg", "lynx", categoryDao.get("Animaux").getId(), wordListDao.get("3",levelDao.get("1").getId()).getId()));
             wordDao.insert(new Word(0, "ours", "ours.jpeg", null, categoryDao.get("Animaux").getId(), wordListDao.get("3",levelDao.get("1").getId()).getId()));
             wordDao.insert(new Word(0, "porc", "porc.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("3",levelDao.get("1").getId()).getId()));
             wordDao.insert(new Word(0, "veau", "veau.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("3",levelDao.get("1").getId()).getId()));
 
-            wordDao.insert(new Word(0, "avion", "avion.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "métro", "métro.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "fusée", "fusée.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "train", "train.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "canoé", "canoé.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "avion", "avion.jpg", "avion", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "métro", "métro.jpg", "métro", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "fusée", "fusée.jpg", "fusée", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "train", "train.jpg", "train", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "canoé", "canoé.jpg", "canoé", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
 
-            wordDao.insert(new Word(0, "biche", "biche.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "bulot", "bulot.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "carpe", "carpe.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "cobra", "cobra.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "dinde", "dinde.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "biche", "biche.jpg", "biche", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "bulot", "bulot.jpg", "bulot", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "carpe", "carpe.jpg", "carpe", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "cobra", "cobra.jpg", "cobra", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "dinde", "dinde.jpg", "dinde", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
 
-            wordDao.insert(new Word(0, "wagon", "wagon.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("3",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "sulky", "sulky.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("3",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "skate", "skate.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("3",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "kayak", "kayak.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("3",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "wagon", "wagon.jpg", "wagon", categoryDao.get("Transport").getId(), wordListDao.get("3",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "sulky", "sulky.jpg", "sulky", categoryDao.get("Transport").getId(), wordListDao.get("3",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "skate", "skate.jpg", "skate", categoryDao.get("Transport").getId(), wordListDao.get("3",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "kayak", "kayak.jpg", "kayak", categoryDao.get("Transport").getId(), wordListDao.get("3",levelDao.get("2").getId()).getId()));
 
-            wordDao.insert(new Word(0, "avocat", "avocat.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "banane", "banane.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "cerise", "cerise.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "farine", "farine.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "fraise", "fraise.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "avocat", "avocat.jpg", "avoat", categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "banane", "banane.jpg", "banane", categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "cerise", "cerise.jpg", "cerse", categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "farine", "farine.jpg", "farine", categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "fraise", "fraise.jpg", "frase", categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("3").getId()).getId()));
 
-            wordDao.insert(new Word(0, "bateau", "bateau.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "camion", "camion.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "cheval", "cheval.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "tandem", "tandem.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "pédalo", "pédalo.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "bateau", "bateau.jpg", "bateau", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "camion", "camion.jpg", "camon", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "cheval", "cheval.jpg", "cheval", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "tandem", "tandem.jpg", "tanem", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "pédalo", "pédalo.jpg", "pédalo", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
 
-            wordDao.insert(new Word(0, "mangue", "mangue.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "oignon", "oignon.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "orange", "orange.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "papaye", "papaye.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "raisin", "raisin.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "mangue", "mangue.jpg", "mangue", categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "oignon", "oignon.jpg", "oignon", categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "orange", "orange.jpg", "orange", categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "papaye", "papaye.jpg", "papaye", categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "raisin", "raisin.jpg", "raisin", categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
 
             return null;
         }
