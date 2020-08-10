@@ -33,15 +33,15 @@ public class Word {
     @ColumnInfo(name = "category_id")
     private int categoryId;
     @ColumnInfo(name = "list_id")
-    private int listId;
+    private int wordListId;
 
-    public Word(int id, @NotNull String word, @NotNull String img, String proposal, int categoryId, int listId) {
+    public Word(int id, @NotNull String word, @NotNull String img, String proposal, int categoryId, int wordListId) {
         this.id = id;
         this.word = word;
         this.img = img;
         this.proposal = proposal;
         this.categoryId = categoryId;
-        this.listId = listId;
+        this.wordListId = wordListId;
     }
 
     public int getId() {
@@ -86,12 +86,12 @@ public class Word {
         this.categoryId = categoryId;
     }
 
-    public int getListId() {
-        return listId;
+    public int getWordListId() {
+        return wordListId;
     }
 
-    public void setListId(int listId) {
-        this.listId = listId;
+    public void setWordListId(int wordListId) {
+        this.wordListId = wordListId;
     }
 
     @NotNull
@@ -103,7 +103,7 @@ public class Word {
                 ", img='" + img + '\'' +
                 ", proposal='" + proposal + '\'' +
                 ", category=" + categoryId +
-                ", list=" + listId +
+                ", list=" + wordListId +
                 '}';
     }
 }
