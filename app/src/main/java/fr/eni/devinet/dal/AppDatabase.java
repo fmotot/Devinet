@@ -5,21 +5,28 @@ import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import fr.eni.devinet.model.Category;
 import fr.eni.devinet.model.Level;
 import fr.eni.devinet.model.Word;
 import fr.eni.devinet.model.WordList;
 
-@Database(entities = {Word.class}, version = 1, exportSchema = false)
+@Database(
+        entities = {
+                Word.class,
+                Category.class,
+                Level.class,
+                WordList.class
+        },
+        version = 1,
+        exportSchema = false
+)
 public abstract class AppDatabase extends RoomDatabase {
 
     public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(1);
@@ -31,6 +38,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract WordDao getWordDao();
     public abstract WordListDao getWordListDao();
     public abstract LevelDao getLevelDao();
+    public abstract CategoryDao getCategoryDao();
 
     /**
      * Singleton permettant de gérer l'instance unique de la connexion à la bdd.
