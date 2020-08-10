@@ -9,6 +9,7 @@ import java.util.List;
 
 import fr.eni.devinet.dal.AppDatabase;
 import fr.eni.devinet.dal.WordDao;
+import fr.eni.devinet.dal.WordListDao;
 import fr.eni.devinet.model.Word;
 import fr.eni.devinet.model.WordList;
 
@@ -54,7 +55,7 @@ public class WordListBddRepository implements IWordListRepository {
         AppDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                wordDao.delete(word);
+                WordListDao.delete(wordList);
             }
         });
     }

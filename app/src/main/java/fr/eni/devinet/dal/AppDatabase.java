@@ -16,6 +16,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import fr.eni.devinet.model.Word;
+import fr.eni.devinet.model.WordList;
 
 @Database(entities = {Word.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
@@ -27,6 +28,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     //Permet de fournir une instance de la dao aux couches supérieures.
     public abstract WordDao wordDao();
+    public abstract WordListDao wordListDao();
 
     /**
      * Singleton permettant de gérer l'instance unique de la connexion à la bdd.
