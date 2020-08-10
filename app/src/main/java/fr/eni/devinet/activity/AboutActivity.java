@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import fr.eni.devinet.R;
+
 public class AboutActivity extends AppCompatActivity {
 
     @Override
