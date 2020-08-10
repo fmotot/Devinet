@@ -20,6 +20,9 @@ public interface WordListDao {
     @Query("SELECT * FROM WordList")
     LiveData<List<WordList>> get();
 
+    @Query("SELECT * FROM WordList WHERE name = :name AND level_id = :level_id")
+    WordList get(String name, int level_id);
+
     @Update
     void update(WordList wordList);
 

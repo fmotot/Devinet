@@ -19,6 +19,9 @@ public interface LevelDao {
     @Query("SELECT * FROM Level")
     LiveData<List<Level>> get();
 
+    @Query("SELECT * FROM Level WHERE name = :name")
+    Level get(String name);
+
     @Update
     void update(Level level);
 

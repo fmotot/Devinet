@@ -17,6 +17,9 @@ public interface CategoryDao {
     @Query("SELECT * FROM Category")
     LiveData<Category> get();
 
+    @Query("SELECT * FROM Category WHERE name = :name")
+    Category get(String name);
+
     @Update
     void update(Category category);
 
