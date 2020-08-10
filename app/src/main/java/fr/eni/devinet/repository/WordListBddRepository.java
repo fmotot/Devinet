@@ -15,13 +15,13 @@ import fr.eni.devinet.model.WordList;
 
 public class WordListBddRepository implements IWordListRepository {
     private WordListDao wordListDao;
-    private LiveData<List<WordList>> wordsList;
+    private LiveData<List<WordList>> wordList;
     private MutableLiveData<WordList> observateurWordList;
 
     public WordListBddRepository(Application application) {
         AppDatabase appDatabase = AppDatabase.getInstance(application);
         wordListDao = appDatabase.wordListDao();
-        wordsList = wordListDao.get();
+        wordList = wordListDao.get();
         observateurWordList = new MutableLiveData<WordList>();
     }
 
@@ -30,7 +30,7 @@ public class WordListBddRepository implements IWordListRepository {
         AppDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                WordListDao.insert(wordList);
+                wordListDao.insert(wordList);
             }
         });
     }
@@ -41,21 +41,21 @@ public class WordListBddRepository implements IWordListRepository {
     }
 
     @Override
-    public void update(WordList wordList) {
+    public void update(final WordList wordList) {
         AppDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                WordListDao.update(wordList);
+                wordListDao.update(wordList);
             }
         });
     }
 
     @Override
-    public void delete(WordList wordList) {
+    public void delete(final WordList wordList) {
         AppDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                WordListDao.delete(wordList);
+                wordListDao.delete(wordList);
             }
         });
     }
