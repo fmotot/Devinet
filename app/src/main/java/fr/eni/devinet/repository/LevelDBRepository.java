@@ -11,11 +11,11 @@ import fr.eni.devinet.dal.AppDatabase;
 import fr.eni.devinet.dal.LevelDao;
 import fr.eni.devinet.model.Level;
 
-public class LevelDbRepository implements  ILevelRepository {
+public class LevelDBRepository implements  ILevelRepository {
     private LevelDao levelDao;
     private LiveData<List<Level>> levels;
 
-    public LevelDbRepository(Application application) {
+    public LevelDBRepository(Application application) {
         AppDatabase appDatabase = AppDatabase.getInstance(application);
         levelDao = appDatabase.getLevelDao();
         levels = levelDao.get();

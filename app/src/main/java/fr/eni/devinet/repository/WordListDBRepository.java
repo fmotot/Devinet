@@ -8,17 +8,15 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.List;
 
 import fr.eni.devinet.dal.AppDatabase;
-import fr.eni.devinet.dal.WordDao;
 import fr.eni.devinet.dal.WordListDao;
-import fr.eni.devinet.model.Word;
 import fr.eni.devinet.model.WordList;
 
-public class WordListDbRepository implements IWordListRepository {
+public class WordListDBRepository implements IWordListRepository {
     private WordListDao wordListDao;
     private LiveData<List<WordList>> wordList;
     private MutableLiveData<WordList> observateurWordList;
 
-    public WordListDbRepository(Application application) {
+    public WordListDBRepository(Application application) {
         AppDatabase appDatabase = AppDatabase.getInstance(application);
         wordListDao = appDatabase.getWordListDao();
         wordList = wordListDao.get();
