@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "879831530444",
+    "firebase_url": "https://devinet-cef42.firebaseio.com",
+    "project_id": "devinet-cef42",
+    "storage_bucket": "devinet-cef42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879831530444:android:616a6e53ad731869b23b69",
+        "android_client_info": {
+          "package_name": "fr.eni.devinet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879831530444-sajonuhumfuu6iu82rmdjv79dvn0k5eh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvBFzFNYTaAp2oQUOvS4zDoALZAnWQDmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879831530444-sajonuhumfuu6iu82rmdjv79dvn0k5eh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
