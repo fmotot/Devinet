@@ -13,14 +13,14 @@ import fr.eni.devinet.dal.WordListDao;
 import fr.eni.devinet.model.Word;
 import fr.eni.devinet.model.WordList;
 
-public class WordListBddRepository implements IWordListRepository {
+public class WordListDbRepository implements IWordListRepository {
     private WordListDao wordListDao;
     private LiveData<List<WordList>> wordList;
     private MutableLiveData<WordList> observateurWordList;
 
-    public WordListBddRepository(Application application) {
+    public WordListDbRepository(Application application) {
         AppDatabase appDatabase = AppDatabase.getInstance(application);
-        wordListDao = appDatabase.wordListDao();
+        wordListDao = appDatabase.getWordListDao();
         wordList = wordListDao.get();
         observateurWordList = new MutableLiveData<WordList>();
     }

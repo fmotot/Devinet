@@ -11,16 +11,14 @@ import fr.eni.devinet.dal.AppDatabase;
 import fr.eni.devinet.dal.WordDao;
 import fr.eni.devinet.model.Word;
 
-public class WordBddRepository  implements  IWordRepository{
+public class WordDbRepository implements  IWordRepository{
     private WordDao wordDao;
     private LiveData<List<Word>> words;
-    private MutableLiveData<Word> observateurWord;
 
-    public WordBddRepository(Application application) {
+    public WordDbRepository(Application application) {
         AppDatabase appDatabase = AppDatabase.getInstance(application);
-        wordDao = appDatabase.wordDao();
+        wordDao = appDatabase.getWordDao();
         words = wordDao.get();
-        observateurWord = new MutableLiveData<Word>();
     }
 
     @Override

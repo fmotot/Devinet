@@ -1,6 +1,7 @@
 package fr.eni.devinet.dal;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -11,6 +12,7 @@ import java.util.List;
 import fr.eni.devinet.model.Word;
 import fr.eni.devinet.model.WordList;
 
+@Dao
 public interface WordListDao {
     @Insert
     void insert(WordList wordList);

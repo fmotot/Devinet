@@ -15,6 +15,7 @@ import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import fr.eni.devinet.model.Level;
 import fr.eni.devinet.model.Word;
 import fr.eni.devinet.model.WordList;
 
@@ -27,8 +28,9 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
 
     //Permet de fournir une instance de la dao aux couches supérieures.
-    public abstract WordDao wordDao();
-    public abstract WordListDao wordListDao();
+    public abstract WordDao getWordDao();
+    public abstract WordListDao getWordListDao();
+    public abstract LevelDao getLevelDao();
 
     /**
      * Singleton permettant de gérer l'instance unique de la connexion à la bdd.
