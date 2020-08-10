@@ -9,12 +9,55 @@
 
 
     <Button
+        android:id="@+id/btn_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="JOUER"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:onClick="onClickStart"
+        />
+
+    <Button
+        android:id="@+id/btn_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MES RESULTATS"
+        app:layout_constraintTop_toBottomOf="@id/btn_start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:onClick="onClickResults"
+        />
+
+    <Button
+        android:id="@+id/btn_proposal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PROPOSER"
+        app:layout_constraintTop_toBottomOf="@id/btn_result"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:onClick="onClickProposal"
+        />
+
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="QUITTER"
+        app:layout_constraintTop_toBottomOf="@id/btn_proposal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:onClick="onClickStop"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

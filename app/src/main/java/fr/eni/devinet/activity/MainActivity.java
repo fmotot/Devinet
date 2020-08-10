@@ -3,6 +3,8 @@ package fr.eni.devinet.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
 
@@ -28,5 +30,21 @@ public class MainActivity extends AppCompatActivity {
         ICategoryRepository repo = new CategoryDBRepository(this);
         repo.insert(new Category(0, "Autre"));
 
+    }
+
+    public void onClickStart(View view) {
+        Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onClickResults(View view) {
+        Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onClickProposal(View view) {
+        Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onClickStop(View view) {
+        Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
     }
 }
