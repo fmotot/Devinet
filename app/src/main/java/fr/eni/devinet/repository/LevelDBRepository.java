@@ -1,6 +1,7 @@
 package fr.eni.devinet.repository;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,15 +11,18 @@ import java.util.List;
 import fr.eni.devinet.dal.AppDatabase;
 import fr.eni.devinet.dal.LevelDao;
 import fr.eni.devinet.model.Level;
+import fr.eni.devinet.model.LevelWithProgress;
 
 public class LevelDBRepository implements  ILevelRepository {
     private LevelDao levelDao;
     private LiveData<List<Level>> levels;
+    private LiveData<List<LevelWithProgress>> levelsWithProgress;
 
     public LevelDBRepository(Context context) {
         AppDatabase appDatabase = AppDatabase.getInstance(context);
         levelDao = appDatabase.getLevelDao();
         levels = levelDao.get();
+        levelsWithProgress = levelDao.getWithProgress();
     }
 
     @Override
@@ -35,6 +39,12 @@ public class LevelDBRepository implements  ILevelRepository {
     public LiveData<List<Level>> get() {
         return levels;
     }
+
+    @Override
+    public LiveData<List<LevelWithProgress>> getWithProgress() {
+        return levelsWithProgress;
+    }
+
 
     @Override
     public void update(final Level level) {
