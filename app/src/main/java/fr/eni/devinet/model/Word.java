@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 @Entity(foreignKeys = {
         @ForeignKey(
-                entity = List.class,
+                entity = WordList.class,
                 parentColumns = "id",
                 childColumns = "list_id",
                 onDelete = ForeignKey.NO_ACTION

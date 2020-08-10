@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
         childColumns = "level_id",
         onDelete = ForeignKey.NO_ACTION
 ))
-public class List {
+public class WordList {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @NonNull
@@ -22,7 +22,7 @@ public class List {
     @ColumnInfo(name = "level_id")
     private int levelId;
 
-    public List(int id, @NotNull String name, int levelId) {
+    public WordList(int id, @NotNull String name, int levelId) {
         this.id = id;
         this.name = name;
         this.levelId = levelId;
