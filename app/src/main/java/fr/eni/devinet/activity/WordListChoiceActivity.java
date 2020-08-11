@@ -50,7 +50,7 @@ public class WordListChoiceActivity extends MenuActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(WordListChoiceActivity.this, "Click sur liste de mot sur position : " + i, Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(WordListChoiceActivity.this, WordListChoiceActivity.class);
+                Intent intent = new Intent(WordListChoiceActivity.this, PlayActivity.class);
                 intent.putExtra(WORDLIST_ID, adapter.getItem(i).getWordList().getId());
 
                 startActivity(intent);
