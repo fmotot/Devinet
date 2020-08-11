@@ -1,6 +1,5 @@
 package fr.eni.devinet.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -20,7 +19,7 @@ import fr.eni.devinet.model.LevelWithProgress;
 import fr.eni.devinet.view_model.LevelViewModel;
 
 public class LevelChoiceActivity extends MenuActivity {
-    public static final String WORDLIST_ID = "wordListId";
+    public static final String LEVEL_ID = "levelId";
 
     private ListView lvLevel;
     private LevelAdapter adapter;
@@ -50,7 +49,7 @@ public class LevelChoiceActivity extends MenuActivity {
                 Toast.makeText(LevelChoiceActivity.this, "Click sur niveau position : " + i, Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(LevelChoiceActivity.this, WordListChoiceActivity.class);
-                intent.putExtra(WORDLIST_ID, adapter.getItem(i).getLevel().getId());
+                intent.putExtra(LEVEL_ID, adapter.getItem(i).getLevel().getId());
 
                 startActivity(intent);
             }
