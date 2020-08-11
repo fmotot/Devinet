@@ -30,6 +30,9 @@ public class MainActivity extends MenuActivity {
         ICategoryRepository repo = new CategoryDBRepository(this);
         repo.insert(new Category(0, "Autre"));
 
+        // TODO à faire dynamiquement suivant les pages et les options
+        getSupportActionBar().setTitle("LE JEUX DEVINET");
+
     }
 
     /**************************************/
