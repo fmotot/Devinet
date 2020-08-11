@@ -11,17 +11,16 @@ import java.util.List;
 import fr.eni.devinet.dal.AppDatabase;
 import fr.eni.devinet.dal.WordListDao;
 import fr.eni.devinet.model.WordList;
+import fr.eni.devinet.model.WordListWithProgress;
 
 public class WordListDBRepository implements IWordListRepository {
     private WordListDao wordListDao;
     private LiveData<List<WordList>> wordList;
-    private MutableLiveData<WordList> observateurWordList;
 
     public WordListDBRepository(Context context) {
         AppDatabase appDatabase = AppDatabase.getInstance(context);
         wordListDao = appDatabase.getWordListDao();
         wordList = wordListDao.get();
-        observateurWordList = new MutableLiveData<WordList>();
     }
 
     @Override
@@ -37,6 +36,11 @@ public class WordListDBRepository implements IWordListRepository {
     @Override
     public LiveData<List<WordList>> get() {
         return wordList;
+    }
+
+    @Override
+    public LiveData<List<WordListWithProgress>> getWithProgress(int levelId){
+        return wordListDao.getWithProgress(levelId);
     }
 
     @Override
