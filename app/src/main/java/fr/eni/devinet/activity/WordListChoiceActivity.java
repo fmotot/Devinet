@@ -20,7 +20,8 @@ import fr.eni.devinet.view_model.WordListViewModel;
 
 public class WordListChoiceActivity extends MenuActivity {
 
-    private static final String WORDLIST_ID = "wordListId";
+    public static final String WORDLIST_ID = "wordListId";
+
     private ListView lvWordList;
     private WordListAdapter adapter;
 

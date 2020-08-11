@@ -24,4 +24,7 @@ public interface WordDao {
 
     @Delete
     void delete(Word word);
+
+    @Query("SELECT * FROM Word WHERE Word.list_id = :wordListId")
+    LiveData<List<Word>> getFromList(int wordListId);
 }

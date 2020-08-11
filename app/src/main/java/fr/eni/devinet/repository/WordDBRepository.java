@@ -1,10 +1,8 @@
 package fr.eni.devinet.repository;
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
@@ -55,5 +53,11 @@ public class WordDBRepository implements  IWordRepository{
                 wordDao.delete(word);
             }
         });
+    }
+
+    @Override
+    public LiveData<List<Word>> getFromList(int wordListId) {
+
+        return wordDao.getFromList(wordListId);
     }
 }

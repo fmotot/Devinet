@@ -2,6 +2,7 @@ package fr.eni.devinet.activity;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.Collections;
 import java.util.List;
 
 import fr.eni.devinet.R;

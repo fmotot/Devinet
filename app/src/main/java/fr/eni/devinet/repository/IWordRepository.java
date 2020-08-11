@@ -14,4 +14,6 @@ public interface IWordRepository {
     void update(Word word);
 
     void delete(Word word);
+
+    LiveData<List<Word>> getFromList(int wordListId);
 }
