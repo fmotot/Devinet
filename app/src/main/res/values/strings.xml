@@ -2,5 +2,6 @@
     <string name="app_name">Devinet</string>
     <string name="level">niveau</string>
     <string name="word_list">liste</string>
+    <string name="parchemin">parchemin</string>
 
 </resources>
