@@ -10,12 +10,11 @@ import android.widget.Toast;
 import com.facebook.stetho.Stetho;
 
 import fr.eni.devinet.R;
-import fr.eni.devinet.dal.AppDatabase;
 import fr.eni.devinet.model.Category;
 import fr.eni.devinet.repository.CategoryDBRepository;
 import fr.eni.devinet.repository.ICategoryRepository;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +32,42 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**************************************/
+    /********** ACTION ON CLICK ***********/
+    /**************************************/
+
+
+    /**
+     * Bouton pour jouer
+     * @param view
+     */
     public void onClickStart(View view) {
         Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,LevelChoiceActivity.class);
         startActivity(intent);
     }
 
+
+    /**
+     * Bouton pour voir les resultats
+     * @param view
+     */
     public void onClickResults(View view) {
         Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Bouton pour faire une proposition
+     * @param view
+     */
     public void onClickProposal(View view) {
         Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Bouton pour arreter l'app
+     * @param view
+     */
     public void onClickStop(View view) {
         Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
     }

@@ -18,7 +18,7 @@ import fr.eni.devinet.activity.adapter.LevelAdapter;
 import fr.eni.devinet.model.LevelWithProgress;
 import fr.eni.devinet.view_model.LevelViewModel;
 
-public class LevelChoiceActivity extends AppCompatActivity {
+public class LevelChoiceActivity extends MenuActivity {
 
     private ListView lvLevel;
 

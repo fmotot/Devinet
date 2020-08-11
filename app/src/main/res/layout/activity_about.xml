@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".activity.AboutActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Application développée par : "
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="30dp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
