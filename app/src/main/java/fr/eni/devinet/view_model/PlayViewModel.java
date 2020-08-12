@@ -25,4 +25,8 @@ public class PlayViewModel extends AndroidViewModel {
     public LiveData<List<Word>> getWordsFromWordList(int wordListId){
         return wordRepository.getFromList(wordListId);
     }
+
+    public void updateWord(Word word){
+        wordRepository.update(word);
+    }
 }

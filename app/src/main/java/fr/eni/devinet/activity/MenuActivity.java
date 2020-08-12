@@ -33,8 +33,8 @@ public abstract class MenuActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MainActivity.class));
                 return true;
 
-            case R.id.action_parametres:
-                Toast.makeText(this, "parametres", Toast.LENGTH_SHORT).show();
+            case R.id.action_preferences:
+                startActivity(new Intent(this, PreferencesActivity.class));
                 return true;
 
             case R.id.action_about:

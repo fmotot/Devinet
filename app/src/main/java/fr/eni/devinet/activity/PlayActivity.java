@@ -9,12 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -34,11 +34,13 @@ public class PlayActivity extends MenuActivity {
     private static final int IV_BACKGROUND_ID = 0;
 
     private int numWord = 0;
-    private Word currentWord;
+    private List<Word> words;
     private Context context;
     private MutableLiveData<String> proposal = new MutableLiveData<>();
-
+    private MutableLiveData<Word> wordMutableLiveData = new MutableLiveData<>();
+    private PlayViewModel vm;
     private float pixelFactor;
+    private boolean isListInitialised = false;
 
 
     @Override
@@ -49,47 +51,42 @@ public class PlayActivity extends MenuActivity {
         context = this;
         pixelFactor = this.getResources().getDisplayMetrics().density;
         int wordListId = getIntent().getIntExtra(WordListChoiceActivity.WORDLIST_ID, 1);
-        proposal.setValue("");
 
-        PlayViewModel vm = ViewModelProviders.of(this).get(PlayViewModel.class);
+        vm = ViewModelProviders.of(this).get(PlayViewModel.class);
 
-        LiveData<List<Word>> words = vm.getWordsFromWordList(wordListId);
+        LiveData<List<Word>> listLiveData = vm.getWordsFromWordList(wordListId);
 
-        words = Transformations.map(words, list -> {
+        listLiveData = Transformations.map(listLiveData, list -> {
             Collections.shuffle(list);
             return list;
         });
 
-        words.observe(this, new Observer<List<Word>>() {
-            @Override
-            public void onChanged(List<Word> words) {
-                currentWord = words.get(numWord);
-
-                // modification de l'image dynamiquement
-                ImageView ivImage = findViewById(R.id.iv_img);
-                ivImage.setImageResource(getResources().getIdentifier(currentWord.getImg().split("\\.")[0], "drawable", getPackageName()));
-
-                // TODO Affichage du mot à supprimer
-                TextView tvTest = findViewById(R.id.tv_test);
-                tvTest.setText(currentWord.getWord());
-
-                setProposalView();
-                setLetters();
+        // initialisation uniquement au premier chargement (pour éviter de recharger la liste sur un update d'un mot)
+        listLiveData.observe(this, words -> {
+            if (!isListInitialised) {
+                PlayActivity.this.words = words;
+                wordMutableLiveData.setValue(words.get(numWord));
+                isListInitialised = true;
             }
         });
 
-        proposal.observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                setProposalView();
-            }
+        wordMutableLiveData.observe(this, word -> {
+            // modification de l'image dynamiquement
+            ImageView ivImage = findViewById(R.id.iv_img);
+            ivImage.setImageResource(getResources().getIdentifier(word.getImg().split("\\.")[0], "drawable", getPackageName()));
+            proposal.setValue(word.getProposal() != null ? word.getProposal() : "");
+
+            setProposalView();
+            setLetters();
         });
+
+        proposal.observe(this, s -> setProposalView());
     }
 
     /**
      * Ajoute une lettre au mot proposé en cours
      *
-     * @param s
+     * @param s la lettre qui sera ajoutée au mot proposé
      */
     private void setProposal(String s) {
         proposal.setValue(proposal.getValue() + s);
@@ -101,19 +98,18 @@ public class PlayActivity extends MenuActivity {
     private void setLetters() {
 
         // suffle des lettres du mot
-        List<String> letters = Utils.shuffleString(currentWord.getWord().toUpperCase());
-        int nbLetters = letters.size();
+        List<String> letters = Utils.shuffleString(Objects.requireNonNull(wordMutableLiveData.getValue()).getWord().toUpperCase());
 
         ConstraintLayout clLetters = findViewById(R.id.cl_letters);
-
+        clLetters.removeAllViews();
 
         // calcul du nombre de ligne & lettres / ligne
         // TODO voir pour un affichage sur plusieurs ligne
-
+        /*
         int nbLigne;
         int maxLetters;
 
-        /*
+
         switch (nbLetters) {
             case 3:
                 nbLigne = 1;
@@ -156,17 +152,14 @@ public class PlayActivity extends MenuActivity {
 
         View previousLetter = null;
 
-        View.OnClickListener onClick = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!(Boolean) view.getTag()) {
-                    TextView tv = (TextView) ((ViewGroup) view).getChildAt(TV_LETTER_ID);
-                    setProposal(tv.getText().toString());
-                    ImageView iv = (ImageView) ((ViewGroup) view).getChildAt(IV_BACKGROUND_ID);
-                    iv.setImageTintList(ColorStateList.valueOf(getColor(R.color.orange)));
-                    // lettre utilisée
-                    view.setTag(true);
-                }
+        View.OnClickListener onClick = view -> {
+            if (!(Boolean) view.getTag()) {
+                TextView tv = (TextView) ((ViewGroup) view).getChildAt(TV_LETTER_ID);
+                setProposal(tv.getText().toString());
+                ImageView iv = (ImageView) ((ViewGroup) view).getChildAt(IV_BACKGROUND_ID);
+                iv.setImageTintList(ColorStateList.valueOf(getColor(R.color.orange)));
+                // lettre utilisée
+                view.setTag(true);
             }
         };
 
@@ -196,15 +189,18 @@ public class PlayActivity extends MenuActivity {
     /**
      * Ajoute une vue contenant la lettre avec une image de fond
      *
-     * @param letter
-     * @return
+     * @param letter la lettre à afficher dans la liste des lettres du mot
+     * @return une view contenant la lettre et une image de fond
      */
     private View createViewShuffle(String letter) {
+        // Si proposition déjà en base, mettre le tag à true et la couleur des lettres sur orange
+        boolean isWordProposed = !Objects.requireNonNull(proposal.getValue()).isEmpty();
+        Log.i("PROP", ((Boolean) isWordProposed).toString());
 
         // Création d'un layout pour contenir le fond et la lettre
         ConstraintLayout clLetter = new ConstraintLayout(context);
         clLetter.setId(View.generateViewId());
-        clLetter.setTag(false);
+        clLetter.setTag(isWordProposed);
         ConstraintLayout.LayoutParams wrap = new ConstraintLayout.LayoutParams(
                 ConstraintLayout.LayoutParams.WRAP_CONTENT,
                 ConstraintLayout.LayoutParams.WRAP_CONTENT
@@ -217,7 +213,8 @@ public class PlayActivity extends MenuActivity {
         ivBackground.setId(View.generateViewId());
         ivBackground.setImageDrawable(getDrawable(R.drawable.ic_paper_letter2));
         ivBackground.setRotation(90);
-        ivBackground.setImageTintList(ColorStateList.valueOf(getColor(R.color.green)));
+        int color = isWordProposed ? getColor(R.color.orange) : getColor(R.color.green);
+        ivBackground.setImageTintList(ColorStateList.valueOf(color));
         ivBackground.setLayoutParams(new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT));
         ivBackground.getLayoutParams().height = (int) (60 * pixelFactor);
         ivBackground.getLayoutParams().width = (int) (40 * pixelFactor);
@@ -252,15 +249,16 @@ public class PlayActivity extends MenuActivity {
      */
     private void setProposalView() {
         ConstraintLayout clLineProposal = findViewById(R.id.cl_line_proposal);
-        ((ViewGroup) clLineProposal).removeAllViews();
+        clLineProposal.removeAllViews();
         ConstraintSet cs = new ConstraintSet();
 
 
         List<String> prop = new ArrayList<>();
-        // TODO voir pour créer un observer sur proposal
-        for (char c : Objects.requireNonNull(proposal.getValue()).toCharArray()) {
+        for (char c : Objects.requireNonNull(proposal.getValue()).toUpperCase().toCharArray()) {
             prop.add(String.valueOf(c));
         }
+
+        Log.i("PROPOSAL", prop.toString());
 
         View previousItem = null;
         for (String letter : prop) {
@@ -303,7 +301,7 @@ public class PlayActivity extends MenuActivity {
 
         // Supprimer les élements dynamiques
         ConstraintLayout clLineProposal = findViewById(R.id.cl_line_proposal);
-        ((ViewGroup) clLineProposal).removeAllViews();
+        clLineProposal.removeAllViews();
 
         // Réinitialiser la proposition
         proposal.setValue("");
@@ -311,15 +309,34 @@ public class PlayActivity extends MenuActivity {
         // Réinitialiser la couleur d'origine et l'utilisation de la lettre
         ViewGroup clLetters = findViewById(R.id.cl_letters);
         // pour toute les lignes de lettre
-        for (int indexLine = 0; indexLine < clLetters.getChildCount(); indexLine++){
-            ViewGroup line = (ViewGroup)clLetters.getChildAt(indexLine);
+        for (int indexLine = 0; indexLine < clLetters.getChildCount(); indexLine++) {
+            ViewGroup line = (ViewGroup) clLetters.getChildAt(indexLine);
             //pour chaque lettre (layout) dans la ligne
-            for(int indexChild = 0; indexChild < line.getChildCount(); indexChild++){
+            for (int indexChild = 0; indexChild < line.getChildCount(); indexChild++) {
                 View letterContainer = line.getChildAt(indexChild);
                 letterContainer.setTag(false);
                 ImageView iv = (ImageView) ((ViewGroup) letterContainer).getChildAt(IV_BACKGROUND_ID);
                 iv.setImageTintList(ColorStateList.valueOf(getColor(R.color.green)));
             }
+        }
+    }
+
+    public void onClickNext(View view) {
+        if (numWord < words.size() - 1) {
+            onClickEraseProposal(view);
+            wordMutableLiveData.setValue(words.get(++numWord));
+        } else {
+            finish();
+        }
+    }
+
+    public void onClickValidate(View view) {
+        if (Objects.requireNonNull(proposal.getValue()).length() == Objects.requireNonNull(wordMutableLiveData.getValue()).getWord().length()) {
+            wordMutableLiveData.getValue().setProposal(proposal.getValue().toLowerCase());
+            vm.updateWord(wordMutableLiveData.getValue());
+            onClickNext(view);
+        } else {
+            Toast.makeText(context, "Veuillez utiliser toutes les lettres à disposition pour valider le mot", Toast.LENGTH_LONG).show();
         }
     }
 }
