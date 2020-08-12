@@ -4,21 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ParametersActivity">
+    tools:context=".activity.PreferencesActivity">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_margin="20dp"
-        android:text="@string/preferences"
-        android:textSize="40sp"
-
-        android:textStyle="italic"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_1"
@@ -28,13 +15,14 @@
         android:layout_marginTop="100dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cl_2"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_sounds"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="120dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -49,7 +37,12 @@
                 android:contentDescription="@string/parchemin"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_paper"
-                android:tint="#E3CCCA" />
+                android:tint="#E3CCCA"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/tv_sounds"
@@ -92,7 +85,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_vibration"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="120dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -107,7 +100,13 @@
                 android:contentDescription="@string/parchemin"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_paper"
-                android:tint="#E3CCCA" />
+                android:tint="#E3CCCA"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
             <TextView
                 android:id="@+id/tv_vibration"

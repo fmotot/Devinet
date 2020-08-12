@@ -7,5 +7,8 @@
     <string name="parameters">Paramètres</string>
     <string name="activate_vibration">Activer les vibrations</string>
     <string name="preferences">Préférences</string>
+    <string name="play">Jouer</string>
+    <string name="propose_word">Proposer un mot</string>
+    <string name="quit">Quitter</string>
 
 </resources>

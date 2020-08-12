@@ -10,7 +10,7 @@ import android.widget.Switch;
 import fr.eni.devinet.R;
 import fr.eni.devinet.model.Preferences;
 
-public class PreferencesActivity extends AppCompatActivity {
+public class PreferencesActivity extends MenuActivity {
 
     private Preferences preferences;
     @Override
@@ -22,9 +22,13 @@ public class PreferencesActivity extends AppCompatActivity {
 
         Switch swSounds = findViewById(R.id.sw_sounds);
         swSounds.setChecked(preferences.isSounds());
+//        swSounds.setSoundEffectsEnabled(preferences.isSounds());
 
         Switch swVibrations = findViewById(R.id.sw_vibration);
         swVibrations.setChecked(preferences.isVibrations());
+//        swVibrations.setSoundEffectsEnabled(preferences.isSounds());
+
+        this.setTitle(this.getTitle() + " - Préférences");
     }
 
     public void onClickBack(View view) {

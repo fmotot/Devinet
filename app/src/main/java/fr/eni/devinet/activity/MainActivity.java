@@ -32,7 +32,7 @@ public class MainActivity extends MenuActivity {
         repo.insert(new Category(0, "Autre"));
 
         // TODO à faire dynamiquement suivant les pages et les options
-        getSupportActionBar().setTitle("LE JEUX DEVINET");
+//        getSupportActionBar().setTitle("LE JEUX DEVINET");
 
     }
 
@@ -46,27 +46,16 @@ public class MainActivity extends MenuActivity {
      * @param view
      */
     public void onClickStart(View view) {
-        Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,LevelChoiceActivity.class);
         startActivity(intent);
     }
 
 
     /**
-     * Bouton pour voir les resultats
-     * @param view
-     */
-    public void onClickResults(View view) {
-        Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, ResultAllActivity.class);
-        startActivity(intent);
-    }
-
-    /**
      * Bouton pour faire une proposition
      * @param view
      */
-    public void onClickProposal(View view) {
+    public void onClickProposeWord(View view) {
         Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
     }
 
@@ -75,6 +64,7 @@ public class MainActivity extends MenuActivity {
      * @param view
      */
     public void onClickStop(View view) {
-        Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
+        finishAffinity();
     }
 }

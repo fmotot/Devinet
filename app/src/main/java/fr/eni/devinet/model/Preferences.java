@@ -2,6 +2,8 @@ package fr.eni.devinet.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.widget.Toast;
 
 public class Preferences {
     public static final String VIBRATIONS = "vibrations";
@@ -9,13 +11,15 @@ public class Preferences {
 
     private boolean sounds;
     private boolean vibrations;
+    private Context context;
 
     private SharedPreferences parameters;
     private SharedPreferences.Editor editor;
 
     public Preferences(Context context) {
-        parameters = context.getSharedPreferences("preferences", Context.MODE_PRIVATE);
-        editor = parameters.edit();
+        this.context = context;
+        this.parameters = context.getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        this.editor = parameters.edit();
     }
 
     public boolean isSounds() {
