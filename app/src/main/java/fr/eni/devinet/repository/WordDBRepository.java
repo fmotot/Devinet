@@ -13,7 +13,7 @@ import fr.eni.devinet.model.Word;
 public class WordDBRepository implements  IWordRepository{
     private WordDao wordDao;
     private LiveData<List<Word>> words;
-    private float allProgress;
+    private LiveData<Float> allProgress;
 
     public WordDBRepository(Context context) {
         AppDatabase appDatabase = AppDatabase.getInstance(context);
@@ -64,7 +64,7 @@ public class WordDBRepository implements  IWordRepository{
     }
 
     @Override
-    public float getAllProgress() {
+    public LiveData<Float> getAllProgress() {
         return allProgress;
     }
 }

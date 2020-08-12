@@ -5,22 +5,24 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+
 import fr.eni.devinet.repository.IWordRepository;
 import fr.eni.devinet.repository.RepoFactory;
 
 public class ResultAllViewModel extends AndroidViewModel {
 
     private IWordRepository wordRepository;
-    private float wordProgress;
+    //private LiveData<Float> wordProgress;
 
     public ResultAllViewModel(@NonNull Application application) {
         super(application);
 
         wordRepository = RepoFactory.getWordRepository(application);
-        wordProgress = wordRepository.getAllProgress();
+        //wordProgress = wordRepository.getAllProgress();
     }
 
-    public float get(){
+    public LiveData<Float> get(){
         return wordRepository.getAllProgress();
     }
 

@@ -1,17 +1,12 @@
 package fr.eni.devinet.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ListView;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -48,10 +43,18 @@ public class ResultAllActivity extends MenuActivity {
 
         ResultAllViewModel rvm = ViewModelProviders.of(this).get(ResultAllViewModel.class);
         //float test = rvm.get();
-        float test = rvm.get();
+        LiveData<Float> generalProgress = rvm.get();
 
-        // TODO recuperation de la valeur
-        Log.i("TEST", "Valeur : " + test);
+        generalProgress.observe(this, new Observer<Float>() {
+            @Override
+            public void onChanged(Float allProgress) {
+                // TODO recuperation de la valeur
+                Log.i("TEST", "Valeur : " + allProgress);
+            }
+        });
+
+
+
 
     }
 }

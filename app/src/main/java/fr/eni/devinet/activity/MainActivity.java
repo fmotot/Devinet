@@ -13,6 +13,7 @@ import fr.eni.devinet.R;
 import fr.eni.devinet.model.Category;
 import fr.eni.devinet.repository.CategoryDBRepository;
 import fr.eni.devinet.repository.ICategoryRepository;
+import fr.eni.devinet.view_model.ResultAllViewModel;
 
 public class MainActivity extends MenuActivity {
 
@@ -57,6 +58,8 @@ public class MainActivity extends MenuActivity {
      */
     public void onClickResults(View view) {
         Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ResultAllActivity.class);
+        startActivity(intent);
     }
 
     /**

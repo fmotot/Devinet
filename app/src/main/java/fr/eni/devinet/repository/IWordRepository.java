@@ -17,5 +17,5 @@ public interface IWordRepository {
 
     LiveData<List<Word>> getFromList(int wordListId);
 
-    float getAllProgress();
+    LiveData<Float> getAllProgress();
 }
