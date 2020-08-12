@@ -8,8 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Utils {
-    private Utils() {
-    }
+    private Utils() {}
 
     public static StringBuilder capitalize(StringBuilder sb){
 
@@ -23,6 +22,7 @@ public class Utils {
         }
         Collections.shuffle(letters);
 
+        // TODO relancer tant que l'ordre n'est pas différent
         return letters;
     }
 }

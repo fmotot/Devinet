@@ -18,7 +18,6 @@
                 android:thickness="5dp"
                 android:useLevel="true"
                 >
-
                 <gradient
                     android:id="@android:id/secondaryProgress"
                     android:startColor="@color/magenta"
@@ -26,7 +25,6 @@
                     android:endColor="@color/green"
                     android:type="sweep"
                     android:useLevel="false" />
-                />
             </shape>
         </rotate>
     </item>
