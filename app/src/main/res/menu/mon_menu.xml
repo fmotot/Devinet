@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <!-- “never” indique que le bouton preferences sera visible dans le menu ‘configuration’ en haut à gauche -->
     <item android:id="@+id/action_home"
         android:title="Accueil"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/action_parametres"
-        android:title="Paramètres"
+    <item android:id="@+id/action_preferences"
+        android:title="@string/preferences"
         app:showAsAction="never"/>
 
     <item android:id="@+id/action_about"

@@ -3,5 +3,9 @@
     <string name="level">niveau</string>
     <string name="word_list">liste</string>
     <string name="parchemin">parchemin</string>
+    <string name="activate_sounds">Activer les sons</string>
+    <string name="parameters">Paramètres</string>
+    <string name="activate_vibration">Activer les vibrations</string>
+    <string name="preferences">Préférences</string>
 
 </resources>
