@@ -13,11 +13,13 @@ import fr.eni.devinet.model.Word;
 public class WordDBRepository implements  IWordRepository{
     private WordDao wordDao;
     private LiveData<List<Word>> words;
+    private float allProgress;
 
     public WordDBRepository(Context context) {
         AppDatabase appDatabase = AppDatabase.getInstance(context);
         wordDao = appDatabase.getWordDao();
         words = wordDao.get();
+        allProgress = wordDao.getAllProgress();
     }
 
     @Override
@@ -59,5 +61,10 @@ public class WordDBRepository implements  IWordRepository{
     public LiveData<List<Word>> getFromList(int wordListId) {
 
         return wordDao.getFromList(wordListId);
+    }
+
+    @Override
+    public float getAllProgress() {
+        return allProgress;
     }
 }

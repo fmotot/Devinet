@@ -27,4 +27,7 @@ public interface WordDao {
 
     @Query("SELECT * FROM Word WHERE Word.list_id = :wordListId")
     LiveData<List<Word>> getFromList(int wordListId);
+
+    @Query("SELECT ROUND((count(*)*100)/(SELECT count(*) FROM word)) as percentage FROM word WHERE proposal != \"\"")
+    float getAllProgress();
 }

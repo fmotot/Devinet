@@ -265,7 +265,7 @@ public class PlayActivity extends MenuActivity {
         View previousItem = null;
         for (String letter : prop) {
 
-            // Création du textView de la lettre
+            // Création du textView de la lettrez
             TextView tv = new TextView(context);
             tv.setText(letter);
             tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
