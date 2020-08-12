@@ -50,6 +50,7 @@ public class ResultAllActivity extends MenuActivity {
         //float test = rvm.get();
         float test = rvm.get();
 
+        // TODO recuperation de la valeur
         Log.i("TEST", "Valeur : " + test);
 
     }
