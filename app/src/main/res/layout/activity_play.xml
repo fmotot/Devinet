@@ -71,6 +71,7 @@
             app:layout_constraintBottom_toTopOf="@id/cl_letters"
 
             android:layout_marginRight="30dp"
+            android:onClick="onClickEraseProposal"
             />
 
 

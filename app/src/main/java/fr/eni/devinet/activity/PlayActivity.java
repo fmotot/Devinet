@@ -245,4 +245,17 @@ public class PlayActivity extends MenuActivity {
             previousItem = tv;
         }
     }
+
+    public void onClickEraseProposal(View view) {
+
+        // Supprimer les élements dynamiques
+        ConstraintLayout clLineProposal = findViewById(R.id.cl_line_proposal);
+        ((ViewGroup) clLineProposal).removeAllViews();
+
+        // Réinitialiser la proposition
+        proposal.setValue("");
+
+        // Réinitialiser la couleur d'origine
+
+    }
 }
