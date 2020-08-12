@@ -47,9 +47,6 @@ public class LevelChoiceActivity extends MenuActivity {
         lvLevel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                // TODO à remplacer
-                Toast.makeText(LevelChoiceActivity.this, "Click sur niveau position : " + i, Toast.LENGTH_LONG).show();
-
                 Intent intent = new Intent(LevelChoiceActivity.this, WordListChoiceActivity.class);
                 intent.putExtra(LEVEL_ID, adapter.getItem(i).getLevel().getId());
 

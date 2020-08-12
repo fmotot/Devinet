@@ -108,8 +108,8 @@ public abstract class AppDatabase extends RoomDatabase {
             wordDao.insert(new Word(0, "kiri", "kiri.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("2",levelDao.get("1").getId()).getId()));
             wordDao.insert(new Word(0, "kiwi", "kiwi.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("2",levelDao.get("1").getId()).getId()));
             wordDao.insert(new Word(0, "noix", "noix.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("2",levelDao.get("1").getId()).getId()));
-            wordDao.insert(new Word(0, "fève", "fève.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("2",levelDao.get("1").getId()).getId()));
-            wordDao.insert(new Word(0, "mûre", "mûre.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("2",levelDao.get("1").getId()).getId()));
+            wordDao.insert(new Word(0, "fève", "feve.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("2",levelDao.get("1").getId()).getId()));
+            wordDao.insert(new Word(0, "mûre", "mure.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("2",levelDao.get("1").getId()).getId()));
 
             wordDao.insert(new Word(0, "loup", "loup.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("3",levelDao.get("1").getId()).getId()));
             wordDao.insert(new Word(0, "lynx", "lynx.jpg", "lynx", categoryDao.get("Animaux").getId(), wordListDao.get("3",levelDao.get("1").getId()).getId()));
@@ -118,10 +118,10 @@ public abstract class AppDatabase extends RoomDatabase {
             wordDao.insert(new Word(0, "veau", "veau.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("3",levelDao.get("1").getId()).getId()));
 
             wordDao.insert(new Word(0, "avion", "avion.jpg", "avion", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "métro", "métro.jpg", "métro", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "fusée", "fusée.jpg", "fusée", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "métro", "metro.jpg", "métro", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "fusée", "fusee.jpg", "fusée", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
             wordDao.insert(new Word(0, "train", "train.jpg", "train", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
-            wordDao.insert(new Word(0, "canoé", "canoé.jpg", "canoé", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
+            wordDao.insert(new Word(0, "canoé", "canoe.jpg", "canoé", categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("2").getId()).getId()));
 
             wordDao.insert(new Word(0, "biche", "biche.jpg", "biche", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
             wordDao.insert(new Word(0, "bulot", "bulot.jpg", "bulot", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("2").getId()).getId()));
@@ -144,7 +144,7 @@ public abstract class AppDatabase extends RoomDatabase {
             wordDao.insert(new Word(0, "camion", "camion.jpg", "camon", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
             wordDao.insert(new Word(0, "cheval", "cheval.jpg", "cheval", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
             wordDao.insert(new Word(0, "tandem", "tandem.jpg", "tanem", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
-            wordDao.insert(new Word(0, "pédalo", "pédalo.jpg", "pédalo", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
+            wordDao.insert(new Word(0, "pédalo", "pedalo.jpg", "pédalo", categoryDao.get("Transport").getId(), wordListDao.get("2",levelDao.get("3").getId()).getId()));
 
             wordDao.insert(new Word(0, "mangue", "mangue.jpg", "mangue", categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
             wordDao.insert(new Word(0, "oignon", "oignon.jpg", "oignon", categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
