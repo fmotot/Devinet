@@ -22,11 +22,11 @@ public class PreferencesActivity extends MenuActivity {
 
         Switch swSounds = findViewById(R.id.sw_sounds);
         swSounds.setChecked(preferences.isSounds());
-//        swSounds.setSoundEffectsEnabled(preferences.isSounds());
+        swSounds.setSoundEffectsEnabled(preferences.isSounds());
 
         Switch swVibrations = findViewById(R.id.sw_vibration);
         swVibrations.setChecked(preferences.isVibrations());
-//        swVibrations.setSoundEffectsEnabled(preferences.isSounds());
+        swVibrations.setSoundEffectsEnabled(preferences.isSounds());
 
         this.setTitle(this.getTitle() + " - Préférences");
     }
