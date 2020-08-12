@@ -1,11 +1,11 @@
 package fr.eni.devinet.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
@@ -14,7 +14,6 @@ import fr.eni.devinet.R;
 import fr.eni.devinet.model.Category;
 import fr.eni.devinet.repository.CategoryDBRepository;
 import fr.eni.devinet.repository.ICategoryRepository;
-import fr.eni.devinet.view_model.ResultAllViewModel;
 
 public class MainActivity extends MenuActivity {
 
@@ -46,6 +45,8 @@ public class MainActivity extends MenuActivity {
      * @param view
      */
     public void onClickStart(View view) {
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(VibrationEffect.createOneShot(50,50));
         Intent intent = new Intent(this,LevelChoiceActivity.class);
         startActivity(intent);
     }
