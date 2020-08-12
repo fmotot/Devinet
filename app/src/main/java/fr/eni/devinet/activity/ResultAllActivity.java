@@ -1,8 +1,15 @@
 package fr.eni.devinet.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
@@ -13,6 +20,7 @@ import java.util.List;
 import fr.eni.devinet.R;
 import fr.eni.devinet.activity.adapter.LevelAdapter;
 import fr.eni.devinet.model.LevelWithProgress;
+import fr.eni.devinet.utils.Utils;
 import fr.eni.devinet.view_model.LevelViewModel;
 import fr.eni.devinet.view_model.ResultAllViewModel;
 
@@ -42,19 +50,26 @@ public class ResultAllActivity extends MenuActivity {
         });
 
         ResultAllViewModel rvm = ViewModelProviders.of(this).get(ResultAllViewModel.class);
-        //float test = rvm.get();
         LiveData<Float> generalProgress = rvm.get();
 
         generalProgress.observe(this, new Observer<Float>() {
             @Override
             public void onChanged(Float allProgress) {
-                // TODO recuperation de la valeur
-                Log.i("TEST", "Valeur : " + allProgress);
+                int pourcentage = Math.round(allProgress);
+
+                // Ajoutement de la couleur suivant la progression
+                ProgressBar pbProgress = findViewById(R.id.pb_progress);
+                pbProgress.setMax(100);
+                pbProgress.setProgress(pourcentage);
+
+                // Affichage de la valeur
+                TextView tvName = findViewById(R.id.tv_progress);
+                tvName.setText(pourcentage + "%");
             }
         });
 
-
-
+        // Donner un titre à l'activité
+        getSupportActionBar().setTitle("RESULTATS - GENERAL");
 
     }
 }

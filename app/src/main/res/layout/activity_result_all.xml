@@ -62,7 +62,8 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="xx%"
-            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textSize="40sp"
             />
     </FrameLayout>
 
