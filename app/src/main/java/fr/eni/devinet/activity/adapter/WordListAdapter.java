@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,7 +57,7 @@ public class WordListAdapter extends ArrayAdapter<WordListWithProgress> {
         name.append(" ").append(wordListWithProgress.getWordList().getName());
         tvName.setText(Utils.capitalize(name));
 
-        Button btnResults = line.findViewById(R.id.btn_results);
+        ImageView btnResults = line.findViewById(R.id.btn_results);
         btnResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
