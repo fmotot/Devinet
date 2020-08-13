@@ -47,5 +47,7 @@ public class ResultActivity extends MenuActivity {
             }
         });
 
+        this.setTitle(this.getTitle() +" - Résultats");
+
     }
 }
