@@ -72,6 +72,6 @@ public class LevelChoiceActivity extends MenuActivity {
             }
         });
 
-
+        this.setTitle(this.getTitle() +" - Selection niveau");
     }
 }

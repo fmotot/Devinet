@@ -55,5 +55,7 @@ public class WordListChoiceActivity extends MenuActivity {
                 startActivity(intent);
             }
         });
+
+        this.setTitle(this.getTitle() +" - Niveau " + levelId);
     }
 }

@@ -81,6 +81,10 @@ public class PlayActivity extends MenuActivity {
         });
 
         proposal.observe(this, s -> setProposalView());
+
+        //this.setTitle(this.getTitle() +" - Liste " + wordListId + " - Mot");
+
+        this.setTitle(this.getTitle() +" - Mot");
     }
 
     /**
