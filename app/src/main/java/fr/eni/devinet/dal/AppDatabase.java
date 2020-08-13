@@ -159,8 +159,8 @@ public abstract class AppDatabase extends RoomDatabase {
             wordDao.insert(new Word(0, "raisin", "raisin.jpg", "raisin", categoryDao.get("Nourriture").getId(), wordListDao.get("3",levelDao.get("3").getId()).getId()));
 
             wordDao.insert(new Word(0, "léopard", "leopard.jpg", null, categoryDao.get("Animaux").getId(), wordListDao.get("1",levelDao.get("4").getId()).getId()));
-            wordDao.insert(new Word(0, "chocolat", "choco.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("5").getId()).getId()));
-            wordDao.insert(new Word(0, "limousine", "limo.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("6").getId()).getId()));
+//            wordDao.insert(new Word(0, "chocolat", "choco.jpg", null, categoryDao.get("Nourriture").getId(), wordListDao.get("1",levelDao.get("5").getId()).getId()));
+//            wordDao.insert(new Word(0, "limousine", "limo.jpg", null, categoryDao.get("Transport").getId(), wordListDao.get("1",levelDao.get("6").getId()).getId()));
 
             return null;
         }
