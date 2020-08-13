@@ -15,6 +15,7 @@ import java.util.List;
 
 import fr.eni.devinet.R;
 import fr.eni.devinet.activity.adapter.WordListAdapter;
+import fr.eni.devinet.model.Level;
 import fr.eni.devinet.model.WordListWithProgress;
 import fr.eni.devinet.view_model.WordListViewModel;
 
@@ -33,9 +34,9 @@ public class WordListChoiceActivity extends MenuActivity {
         WordListViewModel vm = ViewModelProviders.of(this).get(WordListViewModel.class);
         lvWordList = findViewById(R.id.lv_word_list);
 
-        int levelId = getIntent().getIntExtra(LevelChoiceActivity.LEVEL_ID, 1);
+        Level level = getIntent().getParcelableExtra(LevelChoiceActivity.LEVEL);
 
-        LiveData<List<WordListWithProgress>> wordLists = vm.getWordListWithProgress(levelId);
+        LiveData<List<WordListWithProgress>> wordLists = vm.getWordListWithProgress(level.getId());
 
         wordLists.observe(this, new Observer<List<WordListWithProgress>>() {
             @Override
@@ -56,6 +57,6 @@ public class WordListChoiceActivity extends MenuActivity {
             }
         });
 
-        this.setTitle(this.getTitle() +" - Niveau " + levelId);
+        this.setTitle(this.getTitle() +" - Niveau " + level.getName());
     }
 }

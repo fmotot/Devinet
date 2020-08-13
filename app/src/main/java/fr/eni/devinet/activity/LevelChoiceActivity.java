@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ import fr.eni.devinet.view_model.LevelViewModel;
 
 public class LevelChoiceActivity extends MenuActivity {
     public static final String LEVEL_ID = "levelId";
+    public static final String LEVEL = "level";
 
     private ListView lvLevel;
     private LevelAdapter adapter;
@@ -66,7 +68,7 @@ public class LevelChoiceActivity extends MenuActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(LevelChoiceActivity.this, WordListChoiceActivity.class);
-                intent.putExtra(LEVEL_ID, adapter.getItem(i).getLevel().getId());
+                intent.putExtra(LEVEL, adapter.getItem(i).getLevel());
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
