@@ -24,7 +24,7 @@ import fr.eni.devinet.view_model.PlayViewModel;
 import fr.eni.devinet.view_model.ResultViewModel;
 import fr.eni.devinet.view_model.WordListViewModel;
 
-public class ResultActivity extends AppCompatActivity {
+public class ResultActivity extends MenuActivity {
 
     private ListView lvWordList;
 

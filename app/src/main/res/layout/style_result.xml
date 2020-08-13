@@ -25,6 +25,8 @@
         android:layout_height="wrap_content"
 
         android:text="Ligne 1"
+        android:textStyle="bold"
+        android:textColor="@color/green"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/iv_img"
@@ -39,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Ligne 2"
+        android:text="Votre proposition :"
 
         app:layout_constraintTop_toBottomOf="@id/tv_line1"
         app:layout_constraintLeft_toRightOf="@id/iv_img"
@@ -70,10 +72,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
-        android:src="@drawable/ic_baseline_done_green_24"
-
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
 
         />
 
