@@ -2,7 +2,6 @@ package fr.eni.devinet.activity;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -10,9 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
-import java.util.Collections;
 import java.util.List;
 
 import fr.eni.devinet.R;
@@ -41,6 +40,25 @@ public class LevelChoiceActivity extends MenuActivity {
             public void onChanged(List<LevelWithProgress> levelWithProgresses) {
                 adapter = new LevelAdapter(LevelChoiceActivity.this, R.layout.style_level_list, levelWithProgresses);
                 lvLevel.setAdapter(adapter);
+            }
+        });
+
+        // LiveData pour progression générale
+        LiveData<Float> progress = vm.getAllProgress();
+
+        progress.observe(this, new Observer<Float>() {
+            @Override
+            public void onChanged(Float allProgress) {
+                int percent = Math.round(allProgress);
+
+                // Ajoutement de la progressBar suivant la progression
+                ProgressBar pbProgress = findViewById(R.id.pb_progress);
+                pbProgress.setMax(100);
+                pbProgress.setProgress(percent);
+
+                // Affichage de la valeur
+                TextView tvName = findViewById(R.id.tv_progress);
+                tvName.setText(percent + "%");
             }
         });
 

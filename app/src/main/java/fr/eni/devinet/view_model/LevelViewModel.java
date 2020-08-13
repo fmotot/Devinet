@@ -12,22 +12,27 @@ import java.util.List;
 
 import fr.eni.devinet.model.LevelWithProgress;
 import fr.eni.devinet.repository.ILevelRepository;
+import fr.eni.devinet.repository.IWordRepository;
 import fr.eni.devinet.repository.RepoFactory;
 
 public class LevelViewModel extends AndroidViewModel {
 
     private ILevelRepository levelRepository;
+    private IWordRepository wordRepository;
 
-    private LiveData<List<LevelWithProgress>> levels;
 
     public LevelViewModel(@NonNull Application application) {
         super(application);
 
         levelRepository = RepoFactory.getLevelRepository(application);
-        levels = levelRepository.getWithProgress();
+        wordRepository = RepoFactory.getWordRepository(application);
     }
 
     public LiveData<List<LevelWithProgress>> get(){
         return levelRepository.getWithProgress();
+    }
+
+    public LiveData<Float> getAllProgress(){
+        return wordRepository.getAllProgress();
     }
 }
