@@ -72,7 +72,7 @@ public class MainActivity extends MenuActivity {
         new AlertDialog.Builder(this)
             .setIcon(android.R.drawable.ic_dialog_alert)
             .setTitle("Application Devinet")
-            .setMessage("Voulez vous vraiment quitter l'application?")
+            .setMessage("Voulez vous vraiment quitter l'application ?")
             .setPositiveButton("OUI", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
