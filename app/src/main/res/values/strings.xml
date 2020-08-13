@@ -10,5 +10,6 @@
     <string name="play">Jouer</string>
     <string name="propose_word">Proposer un mot</string>
     <string name="quit">Quitter</string>
+    <string name="results">Résultats</string>
 
 </resources>

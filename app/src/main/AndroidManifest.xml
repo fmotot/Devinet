@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.PreferencesActivity"/>
-        <activity android:name=".activity.ResultAllActivity"/>
+        <activity android:name=".activity.ResultActivity"/>
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.PlayActivity" />
         <activity android:name=".activity.WordListChoiceActivity" />

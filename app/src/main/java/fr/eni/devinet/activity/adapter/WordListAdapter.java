@@ -1,12 +1,15 @@
 package fr.eni.devinet.activity.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +17,8 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 import fr.eni.devinet.R;
+import fr.eni.devinet.activity.ResultActivity;
+import fr.eni.devinet.activity.WordListChoiceActivity;
 import fr.eni.devinet.model.WordListWithProgress;
 import fr.eni.devinet.utils.Utils;
 
@@ -51,6 +56,21 @@ public class WordListAdapter extends ArrayAdapter<WordListWithProgress> {
         name.append(" ").append(wordListWithProgress.getWordList().getName());
         tvName.setText(Utils.capitalize(name));
 
+        Button btnResults = line.findViewById(R.id.btn_results);
+        btnResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int listId = wordListWithProgress.getWordList().getId();
+
+                Intent intent = new Intent(context, ResultActivity.class);
+                intent.putExtra(WordListChoiceActivity.WORDLIST_ID, listId);
+
+                context.startActivity(intent);
+            }
+        });
+
+
         return line;
     }
+
 }
