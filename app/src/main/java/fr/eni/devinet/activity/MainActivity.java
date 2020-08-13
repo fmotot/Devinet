@@ -73,18 +73,16 @@ public class MainActivity extends MenuActivity {
 //        finishAffinity();
 
         new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Application Devinet")
-                .setMessage("Voulez vous vraiment quitter l'application?")
-                .setPositiveButton("OUI", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-
-                })
-                .setNegativeButton("NON", null)
-                .show();
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setTitle("Application Devinet")
+            .setMessage("Voulez vous vraiment quitter l'application?")
+            .setPositiveButton("OUI", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            })
+            .setNegativeButton("NON", null)
+            .show();
     }
 }
