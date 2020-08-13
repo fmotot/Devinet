@@ -78,13 +78,13 @@ public class PlayActivity extends MenuActivity {
 
             setProposalView();
             setLetters();
+            this.setTitle("Liste X" + " - Mot " + (numWord + 1) );
         });
 
         proposal.observe(this, s -> setProposalView());
 
         //this.setTitle(this.getTitle() +" - Liste " + wordListId + " - Mot");
 
-        this.setTitle(this.getTitle() +" - Mot");
     }
 
     /**
