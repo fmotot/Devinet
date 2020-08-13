@@ -67,4 +67,14 @@ public class WordDBRepository implements  IWordRepository{
     public LiveData<Float> getAllProgress() {
         return allProgress;
     }
+
+    @Override
+    public void reinitWordsProposal() {
+        AppDatabase.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                wordDao.reinitWordsProposal();
+            }
+        });
+    }
 }

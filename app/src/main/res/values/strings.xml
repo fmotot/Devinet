@@ -11,6 +11,6 @@
     <string name="propose_word">Proposer un mot</string>
     <string name="quit">Quitter</string>
     <string name="results">Résultats</string>
-    <string name="reinit">Réinitialiser</string>
+    <string name="reinit">Réinitialiser l\'avancement dans le jeu</string>
 
 </resources>

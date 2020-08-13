@@ -30,4 +30,7 @@ public interface WordDao {
 
     @Query("SELECT ROUND((count(*)*100)/(SELECT count(*) FROM word)) as percentage FROM word WHERE proposal != \"\"")
     LiveData<Float> getAllProgress();
+
+    @Query("UPDATE Word SET proposal = null")
+    void reinitWordsProposal();
 }

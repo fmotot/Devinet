@@ -18,4 +18,6 @@ public interface IWordRepository {
     LiveData<List<Word>> getFromList(int wordListId);
 
     LiveData<Float> getAllProgress();
+
+    void reinitWordsProposal();
 }
