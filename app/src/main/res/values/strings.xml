@@ -11,5 +11,6 @@
     <string name="propose_word">Proposer un mot</string>
     <string name="quit">Quitter</string>
     <string name="results">Résultats</string>
+    <string name="reinit">Réinitialiser</string>
 
 </resources>
