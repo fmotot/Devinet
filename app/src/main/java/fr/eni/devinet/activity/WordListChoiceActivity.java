@@ -50,6 +50,7 @@ public class WordListChoiceActivity extends MenuActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(WordListChoiceActivity.this, PlayActivity.class);
                 intent.putExtra(WORDLIST_ID, adapter.getItem(i).getWordList().getId());
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                 startActivity(intent);
             }

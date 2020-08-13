@@ -58,15 +58,21 @@ public abstract class MenuActivity extends AppCompatActivity {
     @Override public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_home:
-                startActivity(new Intent(this, MainActivity.class));
+                Intent iMain = new Intent(this,MainActivity.class);
+                iMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(iMain);
                 return true;
 
             case R.id.action_preferences:
-                startActivity(new Intent(this, PreferencesActivity.class));
+                Intent iPreferences = new Intent(this,PreferencesActivity.class);
+                iPreferences.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(iPreferences);
                 return true;
 
             case R.id.action_about:
-                startActivity(new Intent(this, AboutActivity.class));
+                Intent iAbout = new Intent(this,AboutActivity.class);
+                iAbout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(iAbout);
                 return true;
 
             default:

@@ -67,7 +67,7 @@ public class LevelChoiceActivity extends MenuActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(LevelChoiceActivity.this, WordListChoiceActivity.class);
                 intent.putExtra(LEVEL_ID, adapter.getItem(i).getLevel().getId());
-
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
