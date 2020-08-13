@@ -65,7 +65,6 @@ public class MainActivity extends MenuActivity {
      * @param view
      */
     public void onClickStop(View view) {
-//        Toast.makeText(MainActivity.this, "Fonctionnalité non disponible pour le moment", Toast.LENGTH_SHORT).show();
         finishAffinity();
     }
 }
