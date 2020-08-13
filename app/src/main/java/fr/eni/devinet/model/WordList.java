@@ -1,5 +1,8 @@
 package fr.eni.devinet.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -14,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
         childColumns = "level_id",
         onDelete = ForeignKey.NO_ACTION
 ))
-public class WordList {
+public class WordList implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @NonNull
@@ -27,6 +30,24 @@ public class WordList {
         this.name = name;
         this.levelId = levelId;
     }
+
+    protected WordList(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        levelId = in.readInt();
+    }
+
+    public static final Creator<WordList> CREATOR = new Creator<WordList>() {
+        @Override
+        public WordList createFromParcel(Parcel in) {
+            return new WordList(in);
+        }
+
+        @Override
+        public WordList[] newArray(int size) {
+            return new WordList[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -61,5 +82,17 @@ public class WordList {
                 ", name='" + name + '\'' +
                 ", levelId=" + levelId +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(name);
+        parcel.writeInt(levelId);
     }
 }
