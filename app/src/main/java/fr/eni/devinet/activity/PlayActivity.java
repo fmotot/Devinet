@@ -24,7 +24,9 @@ import java.util.List;
 import java.util.Objects;
 
 import fr.eni.devinet.R;
+import fr.eni.devinet.model.Level;
 import fr.eni.devinet.model.Word;
+import fr.eni.devinet.model.WordList;
 import fr.eni.devinet.utils.Utils;
 import fr.eni.devinet.view_model.PlayViewModel;
 
@@ -50,11 +52,11 @@ public class PlayActivity extends MenuActivity {
 
         context = this;
         pixelFactor = this.getResources().getDisplayMetrics().density;
-        int wordListId = getIntent().getIntExtra(WordListChoiceActivity.WORDLIST_ID, 1);
+        WordList wordList = getIntent().getParcelableExtra(WordListChoiceActivity.WORDLIST);
 
         vm = ViewModelProviders.of(this).get(PlayViewModel.class);
 
-        LiveData<List<Word>> listLiveData = vm.getWordsFromWordList(wordListId);
+        LiveData<List<Word>> listLiveData = vm.getWordsFromWordList(wordList.getId());
 
         listLiveData = Transformations.map(listLiveData, list -> {
             Collections.shuffle(list);
@@ -78,12 +80,10 @@ public class PlayActivity extends MenuActivity {
 
             setProposalView();
             setLetters();
-            this.setTitle("Liste X" + " - Mot " + (numWord + 1) );
+            this.setTitle("Liste " + wordList.getName() + " - Mot " + (numWord + 1) );
         });
 
         proposal.observe(this, s -> setProposalView());
-
-        //this.setTitle(this.getTitle() +" - Liste " + wordListId + " - Mot");
 
     }
 

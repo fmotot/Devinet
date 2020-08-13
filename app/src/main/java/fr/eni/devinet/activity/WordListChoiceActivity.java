@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ import fr.eni.devinet.view_model.WordListViewModel;
 
 public class WordListChoiceActivity extends MenuActivity {
 
+    public static final String WORDLIST = "wordList";
     public static final String WORDLIST_ID = "wordListId";
 
     private ListView lvWordList;
@@ -50,9 +52,8 @@ public class WordListChoiceActivity extends MenuActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(WordListChoiceActivity.this, PlayActivity.class);
-                intent.putExtra(WORDLIST_ID, adapter.getItem(i).getWordList().getId());
+                intent.putExtra(WORDLIST, adapter.getItem(i).getWordList());
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
                 startActivity(intent);
             }
         });
